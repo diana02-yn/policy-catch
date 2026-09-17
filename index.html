@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>정책캐치 Catch — 2030 청년 맞춤 정책·복지 플랫폼</title>
+<!--ethos-skip-data-->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pri:#1857d6;--pri-d:#1243a6;--acc:#00b578;--bg:#f2f4f7;--card:#ffffff;--ink:#1a2233;--mut:#647084;--line:#e3e8ef;--soft:#eaf0fd}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1160px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--pri);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:18px}
+.logo small{display:block;font-size:11px;color:var(--mut);font-weight:600;letter-spacing:.02em}
+nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav a{padding:8px 11px;border-radius:9px;font-size:14px;font-weight:700;color:#33415c}
+nav a:hover,nav a.on{background:var(--soft);color:var(--pri)}
+.cta-top{background:var(--pri);color:#fff!important;padding:9px 15px!important}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.hero{background:linear-gradient(180deg,#f7f9fc 0%,#eef1f6 60%,#e9edf3 100%);border-bottom:1px solid var(--line)}
+.hero-in{max-width:1160px;margin:0 auto;padding:52px 20px 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr}}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:800;color:var(--pri)}
+.hero h1{font-size:40px;line-height:1.22;margin:16px 0 12px;letter-spacing:-.02em}
+.hero h1 span{color:var(--pri)}
+.hero p.lead{color:#3d4a63;font-size:16px}
+.hero-btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{display:inline-block;border-radius:12px;padding:13px 20px;font-weight:800;font-size:15px;border:1px solid transparent;cursor:pointer}
+.btn-pri{background:var(--pri);color:#fff}
+.btn-pri:hover{background:var(--pri-d)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-acc{background:var(--acc);color:#fff}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(20,40,90,.08)}
+.hero-card img{width:100%;height:220px;object-fit:cover;display:block}
+.hero-card .hc{padding:16px 18px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 8px}
+@media(max-width:700px){.kpi{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:30px}}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.kpi b{font-size:21px;color:var(--pri)}
+.kpi span{display:block;font-size:12.5px;color:var(--mut);font-weight:600}
+section.block{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;margin:22px 0}
+.sec-t{font-size:22px;font-weight:900;letter-spacing:-.01em}
+.sec-s{color:var(--mut);font-size:14px;margin:6px 0 16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:800px){.grid2{grid-template-columns:1fr}}
+.matchbox{background:#f7f9ff;border:1px dashed #b9cdf5;border-radius:14px;padding:18px}
+.matchbox label{font-size:13px;font-weight:800;color:#33415c;display:block;margin:10px 0 6px}
+.matchbox select,.matchbox input,.matchbox textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:14px;background:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font-size:13.5px;font-weight:700;cursor:pointer}
+.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.plist{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.plist{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.plist{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.pcard h3{font-size:15.5px;line-height:1.45}
+.pmeta{font-size:12.5px;color:var(--mut)}
+.ptag{display:flex;gap:6px;flex-wrap:wrap}
+.ptag span{font-size:11.5px;font-weight:800;background:#eef3ff;color:var(--pri);border-radius:7px;padding:3px 8px}
+.pfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dday{font-size:12.5px;font-weight:900;color:#d33}
+.link{color:var(--pri);font-weight:800;font-size:13.5px}
+table.cmp{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:11px 10px;vertical-align:top;text-align:left}
+table.cmp th{background:#f4f7ff}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.mgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mgrid{grid-template-columns:1fr}}
+.mcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.mcard img{width:100%;height:150px;object-fit:cover;display:block}
+.mcard .mb{padding:13px 14px}
+.mcard .mb b{font-size:15px}
+.stars{color:#f5a623;font-size:13px;font-weight:900}
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:800px){.price{grid-template-columns:1fr}}
+.pr{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.pr.hot{border:2px solid var(--pri);box-shadow:0 10px 24px rgba(24,87,214,.12)}
+.pr h3{font-size:17px}.pr .amt{font-size:26px;font-weight:900;color:var(--pri);margin:8px 0}
+.pr ul{margin:10px 0 14px 18px;font-size:13.5px;color:#33415c}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}}
+.step{background:#f7f9ff;border:1px solid var(--line);border-radius:12px;padding:13px}
+.step b{display:block;margin-bottom:4px}
+.road{border-left:3px solid var(--pri);margin:8px 0 0 8px;padding-left:16px;display:grid;gap:12px}
+.road div b{color:var(--pri)}
+.bmc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px}
+@media(max-width:800px){.bmc{grid-template-columns:1fr}}
+.bmc div{background:#f8fafd;border:1px solid var(--line);border-radius:12px;padding:12px}
+.bmc h4{font-size:13.5px;color:var(--pri);margin-bottom:6px}
+form.q label{font-size:13px;font-weight:800;display:block;margin:10px 0 6px}
+form.q input,form.q select,form.q textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:14px}
+.privacy{font-size:12px;color:var(--mut);margin-top:8px}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#152238;color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:700;display:none;z-index:99;max-width:90%}
+.overlay{position:fixed;inset:0;background:rgba(15,25,45,.5);display:none;z-index:80;padding:18px}
+.sheet{max-width:720px;margin:4vh auto;background:#fff;border-radius:16px;overflow:hidden;max-height:88vh;overflow-y:auto}
+.sheet .sh{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}
+.sheet .sb{padding:18px 20px;font-size:14px}
+.xbtn{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 12px;font-weight:800;cursor:pointer}
+footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
+.kv{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--mut)}
+</style>
+</head>
+<body>
+<header><div class="hwrap">
+<a class="logo" href="#home"><i>✓</i><span>정책캐치<small>CATCH · 2030 청년 정책비서</small></span></a>
+<nav>
+<a href="#match">맞춤매칭</a><a href="#policies">정책찾기</a><a href="#mentors">멘토링</a><a href="#docs">서류·자소서</a><a href="#pricing">요금제</a><a href="#about">소개</a><a href="#contact" class="cta-top">무료 상담</a>
+</nav></div></header>
+
+<div class="hero" id="home"><div class="hero-in">
+<div>
+<span class="badge">● 대전 2030 청년 MVP · AI 초개인화 플랫폼</span>
+<h1>흩어진 청년정책,<br><span>일상 언어로 물으면</span> 바로 매칭</h1>
+<p class="lead">주거·취업·자산형성 혜택을 소득·거주지·고용형태로 분석해 1:1로 매칭하고, 인증 선배의 합격 족보와 AI 서류 첨삭까지 한 번에. 마감 놓치기 전에 캐치하세요.</p>
+<div class="hero-btns">
+<a class="btn btn-pri" href="#match">내 혜택 1분 매칭 체험</a>
+<a class="btn btn-ghost" href="#policies">지원 가능한 공고 보기</a>
+<a class="btn btn-ghost" href="tel:042-123-4567">📞 042-123-4567 전화상담</a>
+</div>
+<div class="kpi">
+<div><b>67.7%</b><span>청년 정책 비인지율 (대전 실태조사)</span></div>
+<div><b>9개</b><span>지금 신청 가능한 대표 공고 큐레이션</span></div>
+<div><b>6명</b><span>합격 인증 선배 멘토 상주</span></div>
+<div><b>D-7</b><span>평균 마감 임박 알림으로 기회 보호</span></div>
+</div>
+</div>
+<div class="hero-card">
+<img src="https://picsum.photos/seed/catch-youth/900/420" alt="청년 일상">
+<div class="hc">
+<b>오늘의 캐치 알림 예시</b>
+<p class="pmeta" style="margin:6px 0">대전 거주 · 월소득 230만원 · 무주택 사회초년생 → <b style="color:var(--pri)">3개 매칭 · 예상 혜택 월 42만원</b></p>
+<div class="ptag"><span>월세지원</span><span>전세임대</span><span>도약계좌</span></div>
+<p style="margin-top:10px"><a class="link" href="#match">내 조건으로 다시 계산하기 →</a></p>
+</div></div>
+</div></div>
+
+<div class="wrap">
+<!-- MATCH -->
+<section class="block" id="match">
+<div class="sec-t">1분 맞춤 매칭 체험</div>
+<p class="sec-s">기획서의 핵심인 ‘조건부 초개인화 매칭’을 그대로 체험할 수 있습니다. 값을 바꾸면 아래 정책 리스트와 연동해 결과가 바뀝니다.</p>
+<div class="grid2">
+<div class="matchbox">
+<label>거주지</label>
+<select id="f-city"><option>대전광역시</option><option>세종특별자치시</option><option>충청남도</option><option>서울특별시</option><option>기타 지역</option></select>
+<label>월 소득 (세전, 만원)</label>
+<input id="f-income" type="number" value="230" min="0" max="1000">
+<label>고용 형태</label>
+<select id="f-job"><option>사회초년생 (중소기업 재직)</option><option>구직중·미취업</option><option>대학생·휴학생</option><option>창업준비·사업자</option><option>프리랜서</option></select>
+<label>관심 분야 (복수 선택)</label>
+<div class="chips" id="f-tags">
+<button class="chip on" data-t="주거">주거</button><button class="chip on" data-t="취업">취업</button><button class="chip on" data-t="자산">자산</button><button class="chip" data-t="교육">교육</button>
+</div>
+<button class="btn btn-pri" id="btn-match" style="width:100%">내 혜택 매칭하기</button>
+<p class="privacy">입력값은 이 기기에서만 계산에 쓰이고 서버로 전송되지 않습니다.</p>
+</div>
+<div>
+<div id="match-result" style="display:grid;gap:10px"></div>
+<div class="matchbox" style="margin-top:12px">
+<b>마감 임박 알림 신청</b>
+<p class="pmeta">매칭된 공고의 마감 7일·3일·당일 알림을 문자로 받고 싶으면 연락처를 남겨주세요.</p>
+<div style="display:flex;gap:8px;margin-top:8px"><input id="al-phone" placeholder="휴대폰 번호 (예: 010-0000-0000)"><button class="btn btn-acc" id="btn-alarm" style="white-space:nowrap">알림 신청</button></div>
+<p class="privacy">입력하신 연락처는 알림 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다. 실제 발송은 게시 후 연동됩니다.</p>
+</div>
+</div></div>
+</section>
+
+<!-- POLICIES -->
+<section class="block" id="policies">
+<div class="sec-t">지원 가능한 정책 공고</div>
+<p class="sec-s">카테고리·검색으로 9개 대표 공고를 탐색하세요. 카드를 누르면 상세(자격·서류·일정)가 열리고, 뒤로가기로 목록에 돌아옵니다.</p>
+<div class="chips" id="p-filter">
+<button class="chip on" data-c="전체">전체</button><button class="chip" data-c="주거">주거</button><button class="chip" data-c="취업">취업</button><button class="chip" data-c="자산">자산</button><button class="chip" data-c="교육">교육</button>
+</div>
+<div style="margin-bottom:12px"><input id="p-search" placeholder="검색: 예) 월세, LH, 자소서, 대전" style="width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px"></div>
+<div class="plist" id="plist"></div>
+<p class="privacy">공고 요약은 이해를 돕기 위한 예시이며, 신청 전 반드시 공식 공고문을 확인하세요. 외부 신청 링크는 상세 화면에 안내됩니다.</p>
+</section>
+
+<!-- MENTORS -->
+<section class="block" id="mentors">
+<div class="sec-t">인증 선배 멘토링 · 합격 족보</div>
+<p class="sec-s">단순 행정 안내가 아닌 ‘어떻게 통과했는지’의 실전 노하우. 수혜 인증 멘토의 족보와 1:1 팁을 제공합니다.</p>
+<div class="mgrid" id="mgrid"></div>
+</section>
+
+<!-- DOCS -->
+<section class="block" id="docs">
+<div class="sec-t">서류 가이드 · AI 자소서 초안 체험</div>
+<p class="sec-s">공식 발급처 원클릭 가이드부터 AI OCR·마이데이터 연동(Phase 1 테스트)까지. 아래에서 투박한 메모를 넣으면 신청서용 문장으로 다듬어 드립니다(기기 내 변환, 서버 전송 없음).</p>
+<div class="grid2">
+<div>
+<div class="steps">
+<div class="step"><b>1. 발급처 안내</b><span class="pmeta">주민등록등본·소득금액증명 등 발급처와 수수료를 단계별로 안내</span></div>
+<div class="step"><b>2. OCR 자동추출</b><span class="pmeta">서류 사진에서 이름·기간·금액을 자동 추출해 체크리스트 완성</span></div>
+<div class="step"><b>3. 누락 검증</b><span class="pmeta">공고별 필수서류와 대조해 빠진 서류를 바로 표시</span></div>
+<div class="step"><b>4. 전자제출</b><span class="pmeta">마이데이터 API 연동 후 원클릭 제출 (Phase 1 테스트 중)</span></div>
+</div>
+<div class="matchbox" style="margin-top:12px"><b>자주 빠지는 서류 체크</b><div class="kv" style="margin-top:8px"><span>☐ 주민등록등본(최근 3개월)</span><span>☐ 소득금액증명원</span><span>☐ 임대차계약서 사본</span><span>☐ 재직·사업자 증빙</span><span>☐ 통장사본</span></div>
+<p style="margin-top:10px"><a class="link" href="https://www.gov.kr" target="_blank" rel="noopener">정부24에서 서류 발급하기 →</a> &nbsp; <a class="link" href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로 공고 확인 →</a></p></div>
+</div>
+<div class="matchbox">
+<label>지원 사업 선택</label><select id="d-biz"><option>대전 청년 월세지원</option><option>LH 청년전세임대</option><option>청년창업지원금</option><option>국민취업지원제도</option><option>청년도약계좌</option></select>
+<label>투박한 메모 (예: 편의점 알바 1년, 월 200 저축…)</label>
+<textarea id="d-memo" rows="5" placeholder="경험·동기·계획을 편하게 적어주세요. 예) 대전에서 자취 2년차, 월세 45만원 부담…"></textarea>
+<button class="btn btn-pri" id="btn-draft" style="width:100%;margin-top:10px">전문 어조로 초안 만들기</button>
+<textarea id="d-out" rows="7" readonly placeholder="여기에 다듬어진 초안이 표시됩니다" style="margin-top:10px"></textarea>
+<p class="privacy">입력 내용은 외부로 전송되지 않습니다. 제출용 최종본은 멘토 첨삭(유료)을 권장합니다.</p>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="block" id="pricing">
+<div class="sec-t">요금제 — 정책캐치 패스</div>
+<p class="sec-s">기본 매칭은 무료. 마감 임박 알림·족보·첨삭이 필요할 때만 패스 또는 단건으로 이용하세요.</p>
+<div class="price">
+<div class="pr"><h3>무료 (B2C)</h3><div class="amt">0원</div><ul><li>기본 맞춤 혜택 요약 (일 1회)</li><li>공고 탐색·마감 캘린더</li><li>멘토링·첨삭은 단건 결제</li></ul><button class="btn btn-ghost" data-plan="무료 시작">무료로 시작하기</button></div>
+<div class="pr hot"><h3>정책캐치 패스 ⭐</h3><div class="amt">월 3,900원~</div><ul><li>신규 공고 즉시 + 마감 임박 알림</li><li>인증 족보 월 5회 · AI 첨삭 월 3회 무료</li><li>서류 누락 검증 우선 지원</li></ul><button class="btn btn-pri" data-plan="정책캐치 패스">패스 신청하기</button></div>
+<div class="pr"><h3>단건 결제</h3><div class="amt">건당 소액</div><ul><li>1:1 멘토 채팅 1회권</li><li>AI 자소서·계획서 첨삭 1회권</li><li>필요할 때만 결제</li></ul><button class="btn btn-ghost" data-plan="단건 결제">단건 이용하기</button></div>
+</div>
+<p class="privacy">B2B/B2G: 지자체 맞춤 리포트·금융/부동산 타겟 광고(CPC/CPM)는 <a class="link" href="#contact">제휴 문의</a>로 연결됩니다.</p>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+<div class="sec-t">왜 정책캐치인가 — 기획 핵심 요약</div>
+<p class="sec-s">첨부 기획서(정책캐치 Catch)의 문제 인식·차별성·수익모델·로드맵을 한 화면에 정리했습니다.</p>
+<h4 style="margin:12px 0 8px">기존 포털 vs 정책캐치</h4>
+<div style="overflow-x:auto"><table class="cmp">
+<tr><th>비교 항목</th><th>기존 공공 포털 (예: 대전 청년 포털)</th><th>정책캐치</th></tr>
+<tr><td><b>정보 탐색</b></td><td>키워드·카테고리 수동 탐색, 공고문 직접 확인</td><td>생성형 AI(RAG) 대화형 큐레이션, 일상 언어로 질문</td></tr>
+<tr><td><b>개인화</b></td><td>지원 자격을 본인이 직접 대조</td><td>소득·거주지·고용형태 분석, 실시간 1:1 매칭</td></tr>
+<tr><td><b>실전 노하우</b></td><td>공고문·결과발표 위주 행정정보</td><td>인증 수혜자의 합격 족보·1:1 멘토링</td></tr>
+<tr><td><b>서류·신청</b></td><td>신청 링크 안내·외부 연계 중심</td><td>원클릭 서류 가이드 + AI 자소서·계획서 첨삭</td></tr>
+</table></div>
+<h4 style="margin:16px 0 8px">비즈니스 모델 캔버스 (요약)</h4>
+<div class="bmc">
+<div><h4>핵심 파트너</h4>지자체·공공기관 / 대학교 청년센터·취창업기관 / 행정서류 API 연계기관</div>
+<div><h4>핵심 활동</h4>RAG AI 엔진·데이터 갱신 / 멘토 인증·품질관리 / 서류 첨삭 알고리즘 고도화</div>
+<div><h4>가치 제안</h4>조건부 초개인화 매칭 / 인증 멘토링 실전 노하우 / 원스톱 서류 준비로 합격률 제고</div>
+<div><h4>고객 관계·채널</h4>맞춤 커스텀 알림톡 / 리뷰 기반 멘토-멘티 / 모바일웹·앱, 에브리타임 마케팅</div>
+<div><h4>고객 세그먼트</h4>핵심: 대전 2030 청년·사회초년생 / 확장: 전국 지자체 청년</div>
+<div><h4>비용·수익</h4>비용: AI API·서버, 구축 인건비, 마케팅 / 수익: 패스 구독·단건 과금, 리포트·타겟광고</div>
+</div>
+<h4 style="margin:16px 0 8px">로드맵</h4>
+<div class="road">
+<div><b>Phase 1 — MVP</b><br>대전 2030 대상 MVP 런칭, OCR 자동추출 테스트 운영</div>
+<div><b>Phase 2 — 수익화</b><br>구독 고도화·단건 결제 안정화, B2B 맞춤 타겟광고 본격 도입</div>
+<div><b>Phase 3 — 전국 확대</b><br>전국 권역 확대·공공 API 고도화, 청년정책 공식 위탁 플랫폼 도약</div>
+</div>
+<p class="pmeta" style="margin-top:10px">기대효과: 정보 비대칭 해소 → 실전 팁이 쌓이는 자생 생태계 → 청년 지역 정착(정주 여건 개선).</p>
+</section>
+
+<!-- CONTACT -->
+<section class="block" id="contact">
+<div class="sec-t">무료 상담 · 제휴 문의</div>
+<p class="sec-s">궁금한 정책·멘토링·지자체 제휴를 남겨주세요. 남긴 내용은 이 기기에 저장되고 접수번호가 발급됩니다.</p>
+<div class="grid2">
+<form class="q matchbox" id="qform">
+<label>이름</label><input id="q-name" placeholder="홍길동">
+<label>연락처</label><input id="q-phone" placeholder="010-0000-0000">
+<label>문의 유형</label><select id="q-type"><option>내게 맞는 정책 찾기</option><option>멘토링·족보 이용</option><option>요금제·패스 문의</option><option>지자체·기업 제휴 (B2B/B2G)</option></select>
+<label>내용</label><textarea id="q-body" rows="4" placeholder="예) 대전 거주 사회초년생, 월세지원 조건이 궁금해요"></textarea>
+<button class="btn btn-pri" type="submit" style="width:100%;margin-top:12px">문의 남기기</button>
+<p class="privacy">입력하신 연락처는 문의 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다.</p>
+</form>
+<div>
+<div class="matchbox"><b>빠른 연결</b><p style="margin:8px 0;display:flex;gap:8px;flex-wrap:wrap">
+<a class="btn btn-ghost" href="tel:042-123-4567">📞 전화하기</a>
+<a class="btn btn-ghost" href="sms:042-123-4567">💬 문자로 문의</a>
+<a class="btn btn-ghost" href="mailto:hello@policy-catch.kr">✉️ 이메일 보내기</a></p>
+<p class="pmeta">운영시간: 평일 10:00–18:00 ·044-000-0000 아님, 예시 번호입니다. 실제 번호로 교체해 사용하세요.</p></div>
+<div class="matchbox" style="margin-top:12px"><b>내 접수함 (이 기기)</b><div id="mybox" class="pmeta" style="margin-top:6px">아직 남긴 문의가 없습니다.</div></div>
+</div>
+</div>
+</section>
+</div>
+
+<footer>DST창업캠프 · 정책캐치(Catch) 시안 — 기획서 기반 큰 틀 (MVP 화면 설계용)<br>밝은 회색 배경 레퍼런스를 반영한 클린 테마 · 사진: picsum 플레이스홀더(실제 청년·공간 사진으로 교체 가능)</footer>
+
+<div id="toast"></div>
+<div class="overlay" id="overlay"><div class="sheet"><div class="sh"><b id="ov-t"></b><button class="xbtn" id="ov-x">닫기 ✕</button></div><div class="sb" id="ov-b"></div></div></div>
+
+<script>
+var POLICIES=[
+{id:1,cat:"주거",title:"대전 청년 월세지원 (월 최대 20만원 × 12개월)",org:"대전시",amt:"월 최대 20만원",due:"2026-10-24",dday:"D-37",cond:"대전 거주 19~39세 무주택 · 소득 중위 150% 이하",tags:["주거","대전","월세"],min:0,max:350,desc:"자취 청년의 월세 부담을 낮추는 대전 대표 주거지원. 임대차계약서·소득증빙 필수.",docs:["주민등록등본","임대차계약서 사본","소득금액증명원","통장사본"],link:"https://www.daejeon.go.kr"},
+{id:2,cat:"주거",title:"LH 청년전세임대 (수도권·대전 1순위)",org:"LH",amt:"전세금 최대 1.2억 지원",due:"2026-11-07",dday:"D-51",cond:"무주택 대학생·취업준비생·19~39세",tags:["주거","전세","LH"],min:0,max:400,desc:"LH가 집주인과 계약하고 청년에게 재임대. 초기 목돈 부담이 적어 자취 첫걸음에 유리.",docs:["주민등록등본","재학·졸업증명","소득확인서류"],link:"https://www.lh.or.kr"},
+{id:3,cat:"자산",title:"청년도약계좌 (5년 · 정부기여금 + 이자)",org:"금융위·은행",amt:"월 70만원 한도 · 기여금 매칭",due:"상시",dday:"상시모집",cond:"19~34세 · 총급여 7,500만원 이하",tags:["자산","저축","상시"],min:0,max:625,desc:"꾸준히 모으면 정부가 얹어주는 대표 자산형성 상품. 자동이체 유지가 합격 포인트.",docs:["신분증","소득확인서류","입출금통장"],link:"https://www.bokjiro.go.kr"},
+{id:4,cat:"취업",title:"국민취업지원제도 (구직촉진수당 월 50만원×6)",org:"고용노동부",amt:"월 50만원 × 6개월",due:"2026-10-31",dday:"D-44",cond:"구직중 · 소득·재산 요건 충족",tags:["취업","수당","구직"],min:0,max:300,desc:"구직활동 의무 이행 시 수당 지급. 취업상담과 함께 받으면 조기취업수당도 가능.",docs:["구직신청서","소득·재산 증빙","활동계획서"],link:"https://www.kua.go.kr"},
+{id:5,cat:"취업",title:"청년창업지원금 (사업화자금 최대 1,000만원)",org:"중기부·창조경제혁신센터",amt:"최대 1,000만원",due:"2026-10-02",dday:"D-15",cond:"예비·초기창업자 (39세 이하)",tags:["취업","창업","사업계획서"],min:0,max:1000,desc:"아이템 검증·시제품·마케팅비를 묶어 지원. 사업계획서와 발표평가가 당락을 가름.",docs:["사업계획서","대표자 신분증","사업자등록(해당시)"],link:"https://www.k-startup.go.kr"},
+{id:6,cat:"자산",title:"대전 청년 자산형성 통장 (3년 매칭저축)",org:"대전시",amt:"본인저축 1:1 매칭",due:"2026-09-30",dday:"D-13",cond:"대전 거주 근로청년 · 소득요건",tags:["자산","대전","매칭"],min:100,max:350,desc:"매달 저축하면 시가 같은 금액을 보태주는 지역형 매칭통장. 중도해지 조건 유의.",docs:["재직증명","급여명세","주민등록등본"],link:"https://www.daejeon.go.kr"},
+{id:7,cat:"교육",title:"청년 자격증 응시료 지원 (연 2회·최대 20만원)",org:"대전 청년센터",amt:"최대 20만원 실비",due:"2026-12-12",dday:"D-86",cond:"대전 청년 · 응시확인서 제출",tags:["교육","자격증","실비"],min:0,max:1000,desc:"어학·국가자격 응시료를 사후 환급. 영수증·성적표만 챙기면 통과율 높음.",docs:["응시확인서","결제영수증","통장사본"],link:"https://www.youthcenter.go.kr"},
+{id:8,cat:"주거",title:"전월세 보증금 대출이자 지원 (연 2%)",org:"대전시·은행",amt:"이자 연 최대 200만원",due:"2026-11-20",dday:"D-64",cond:"무주택 세대주 · 보증금 2억 이하",tags:["주거","대출","이자"],min:0,max:500,desc:"전월세 대출 이자 일부를 시가 보전. 계약 전 은행·시 조건을 교차 확인해야 함.",docs:["임대차계약서","대출실행확인서","주민등록등본"],link:"https://www.daejeon.go.kr"},
+{id:9,cat:"취업",title:"청년 인턴십·일경험 지원 (수당 + 멘토링)",org:"고용노동부",amt:"월 150만원 내외",due:"2026-10-17",dday:"D-30",cond:"미취업 청년 · 주 25시간 이상",tags:["취업","인턴","경험"],min:0,max:400,desc:"기업 현장경험과 직무교육을 함께 제공. 수료 후 정규직 전환 사례 다수.",docs:["참여신청서","졸업증명","자기소개서"],link:"https://www.work.go.kr"}];
+var MENTORS=[
+{img:"https://picsum.photos/seed/mentor-a/600/300",name:"김○현 · LH 전세임대 합격",star:"★★★★★ 4.9",bio:"자취 2년차 · 서류 1회 통과. 가점 항목·우선순위 고르는 법 족보 보유.",tip:"임대 가능 주택 리스트업 순서가 핵심"},
+{img:"https://picsum.photos/seed/mentor-b/600/300",name:"박○민 · 창업지원금 수혜",star:"★★★★★ 4.8",bio:"사업계획서 3번 탈락 후 합격. 심사위원 질문 20선 정리.",tip:"수익모델 한 장 요약이 당락을 가름"},
+{img:"https://picsum.photos/seed/mentor-c/600/300",name:"이○서 · 월세지원 통과",star:"★★★★☆ 4.7",bio:"계약서 특약 문구 때문에 반려될 뻔한 경험 공유.",tip:"확정일자·전입신고 순서 주의"},
+{img:"https://picsum.photos/seed/mentor-d/600/300",name:"최○준 · 국취제 수당 6개월",star:"★★★★★ 4.9",bio:"구직활동 인정받는 활동일지 쓰는 법 전수.",tip:"활동계획서 첫 문장이 중요"},
+{img:"https://picsum.photos/seed/mentor-e/600/300",name:"정○아 · 도약계좌 2년 유지",star:"★★★★☆ 4.6",bio:"중도해지 없이 유지하는 자동이체·비상금 룰 공유.",tip:"급여일 다음날 자동이체 고정"},
+{img:"https://picsum.photos/seed/mentor-f/600/300",name:"한○우 · 인턴→정규직 전환",star:"★★★★★ 4.8",bio:"자소서·면접 1:1 첨삭. 직무경험 STAR 정리법 제공.",tip:"경험은 수치로 바꿔 쓰기"}];
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(function(){t.style.display="none"},2600)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var curCat="전체";
+function renderPolicies(){
+ var q=(document.getElementById("p-search").value||"").trim();
+ var box=document.getElementById("plist");box.innerHTML="";
+ POLICIES.filter(function(p){return (curCat==="전체"||p.cat===curCat)&&(!q||(p.title+p.org+p.cond).indexOf(q)>-1)}).forEach(function(p){
+  var d=document.createElement("div");d.className="pcard";
+  d.innerHTML="<div class='ptag'><span>"+p.cat+"</span><span>"+p.org+"</span><span>"+p.dday+"</span></div><h3>"+esc(p.title)+"</h3><div class='pmeta'>"+esc(p.cond)+"<br>마감 "+p.due+" · "+esc(p.amt)+"</div><div class='pfoot'><a class='link' href='#policy-"+p.id+"'>상세·서류 보기 →</a><button class='chip' data-save='"+p.id+"'>☆ 저장</button></div>";
+  box.appendChild(d);
+ });
+ if(!box.children.length)box.innerHTML="<div class='pmeta'>조건에 맞는 공고가 없습니다. 검색어를 바꿔보세요.</div>";
+ box.querySelectorAll("[data-save]").forEach(function(b){b.onclick=function(){var k="catch_saved";var a=JSON.parse(localStorage.getItem(k)||"[]");if(a.indexOf(b.dataset.save)<0)a.push(b.dataset.save);localStorage.setItem(k,JSON.stringify(a));toast("저장했습니다. 상세 화면에서 언제든 다시 볼 수 있어요.")}});
+}
+document.getElementById("p-filter").querySelectorAll(".chip").forEach(function(c){c.onclick=function(){document.querySelectorAll("#p-filter .chip").forEach(function(x){x.classList.remove("on")});c.classList.add("on");curCat=c.dataset.c;renderPolicies()}});
+document.getElementById("p-search").oninput=renderPolicies;
+function renderMentors(){
+ var g=document.getElementById("mgrid");g.innerHTML="";
+ MENTORS.forEach(function(m,i){
+  var d=document.createElement("div");d.className="mcard";
+  d.innerHTML="<img src='"+m.img+"' alt='멘토' loading='lazy'><div class='mb'><b>"+m.name+"</b><div class='stars'>"+m.star+"</div><p class='pmeta' style='margin:6px 0'>"+m.bio+"<br>대표 팁: <b style='color:var(--pri)'>"+m.tip+"</b></p><div style='display:flex;gap:8px'><button class='btn btn-pri' style='flex:1;padding:10px' data-m='"+i+"'>1:1 매칭 신청</button><a class='btn btn-ghost' style='padding:10px 14px' href='#docs'>족보 보기</a></div></div>";
+  g.appendChild(d);
+ });
+ g.querySelectorAll("[data-m]").forEach(function(b){b.onclick=function(){var m=MENTORS[+b.dataset.m];var n="catch_mentor";var a=JSON.parse(localStorage.getItem(n)||"[]");var no="MT-"+Math.floor(1000+Math.random()*9000);a.push({no:no,mentor:m.name,at:new Date().toLocaleString()});localStorage.setItem(n,JSON.stringify(a));toast("매칭 신청 완료 · 접수번호 "+no+" (내 접수함은 문의 섹션에서 확인)")}});
+}
+document.getElementById("f-tags").querySelectorAll(".chip").forEach(function(c){c.onclick=function(e){e.preventDefault();c.classList.toggle("on")}});
+document.getElementById("btn-match").onclick=function(){
+ var inc=+document.getElementById("f-income").value||0;
+ var tags=[].map.call(document.querySelectorAll("#f-tags .chip.on"),function(x){return x.dataset.t});
+ var box=document.getElementById("match-result");box.innerHTML="";
+ var hit=POLICIES.filter(function(p){return tags.indexOf(p.cat)>-1&&inc>=p.min-50&&inc<=p.max+200}).slice(0,3);
+ if(!hit.length){box.innerHTML="<div class='matchbox'>조건에 맞는 공고가 적어요. 관심 분야를 넓혀보세요.</div>";return}
+ var html="<div class='matchbox' style='border-style:solid'><b>매칭 결과 · "+hit.length+"개 (예상 혜택 요약)</b></div>";
+ hit.forEach(function(p,i){html+="<div class='pcard'><div class='ptag'><span>매칭 "+(92-i*4)+"%</span><span>"+p.cat+"</span></div><h3>"+esc(p.title)+"</h3><div class='pmeta'>"+esc(p.cond)+"</div><a class='link' href='#policy-"+p.id+"'>상세 보기 →</a></div>"});
+ box.innerHTML=html;
+ toast("매칭 완료 · "+hit.length+"개 공고를 찾았어요");
+};
+document.getElementById("btn-alarm").onclick=function(){var v=document.getElementById("al-phone").value.trim();if(v.length<9){toast("휴대폰 번호를 입력해주세요");return}localStorage.setItem("catch_alarm",v);toast("알림 신청 저장 · 마감 7일·3일·당일에 안내(게시 후 발송)")};
+document.getElementById("btn-draft").onclick=function(){
+ var biz=document.getElementById("d-biz").value,m=document.getElementById("d-memo").value.trim();
+ if(m.length<5){toast("메모를 2~3줄이라도 적어주세요");return}
+ var out="["+biz+" 지원 동기 및 계획]\n\n저는 "+m.replace(/\n/g," ").slice(0,220)+" 등의 경험을 바탕으로 본 사업의 취지에 깊이 공감하여 지원합니다. 입주(선정) 후에는 월별 실행계획을 세워 성실히 이행하고, 결과물을 투명하게 기록·공유하겠습니다. 특히 예산·일정 관리와 증빙 정리를 철저히 하여 사업 목적에 부합하는 성과를 내겠습니다. (※ 기기 내 자동 초안 — 제출 전 멘토 첨삭 권장)";
+ document.getElementById("d-out").value=out;toast("초안이 만들어졌어요. 복사해 제출서에 붙여넣으세요.");
+};
+document.querySelectorAll("[data-plan]").forEach(function(b){b.onclick=function(){localStorage.setItem("catch_plan",b.dataset.plan);toast(b.dataset.plan+" 선택 저장 · 결제는 정식 출시 후 연동됩니다")}});
+function loadBox(){try{var q=JSON.parse(localStorage.getItem("catch_q")||"[]");var el=document.getElementById("mybox");if(!q.length){el.textContent="아직 남긴 문의가 없습니다.";return}el.innerHTML=q.slice(-3).reverse().map(function(x){return "· "+esc(x.no)+" · "+esc(x.type)+" · "+esc(x.at)}).join("<br>")}catch(e){}}
+document.getElementById("qform").onsubmit=function(e){e.preventDefault();var n=document.getElementById("q-name").value.trim(),p=document.getElementById("q-phone").value.trim(),t=document.getElementById("q-type").value,b=document.getElementById("q-body").value.trim();if(n.length<1||p.length<9){toast("이름과 연락처를 입력해주세요");return}var no="CT-"+Math.floor(1000+Math.random()*9000);var a=JSON.parse(localStorage.getItem("catch_q")||"[]");a.push({no:no,name:n,phone:p,type:t,body:b,at:new Date().toLocaleString()});localStorage.setItem("catch_q",JSON.stringify(a));loadBox();toast("접수 완료 · 접수번호 "+no);e.target.reset()};
+function openPolicy(id){var p=null;POLICIES.forEach(function(x){if(x.id===id)p=x});if(!p)return;
+ document.getElementById("ov-t").textContent=p.title;
+ document.getElementById("ov-b").innerHTML="<div class='ptag' style='margin-bottom:8px'><span>"+p.cat+"</span><span>"+p.org+"</span><span>"+p.dday+" · "+p.due+"</span></div><p>"+esc(p.desc)+"</p><p class='pmeta' style='margin:8px 0'>지원자격: "+esc(p.cond)+"<br>혜택: "+esc(p.amt)+"</p><b>필수 서류</b><ul style='margin:6px 0 10px 18px'>"+p.docs.map(function(d){return "<li>"+d+"</li>"}).join("")+"</ul><div style='display:flex;gap:8px;flex-wrap:wrap'><a class='btn btn-pri' href='"+p.link+"' target='_blank' rel='noopener'>공식 공고·신청 바로가기</a><a class='btn btn-ghost' href='tel:042-123-4567'>전화로 물어보기</a><a class='btn btn-ghost' href='#docs'>자소서 초안 만들기</a></div><p class='privacy'>신청 전 공식 공고문 원문을 반드시 확인하세요.</p>";
+ document.getElementById("overlay").style.display="block";
+}
+function route(){var h=location.hash||"#home";if(h.indexOf("#policy-")===0){openPolicy(+h.replace("#policy-",""))}else{document.getElementById("overlay").style.display="none"}}
+window.addEventListener("hashchange",route);
+document.getElementById("ov-x").onclick=function(){history.back()};
+document.getElementById("overlay").addEventListener("click",function(e){if(e.target.id==="overlay")history.back()});
+renderPolicies();renderMentors();loadBox();route();
+</script>
+
+<!--ethos-badge--><div style="text-align:center;padding:16px 8px 20px;font:12px/1.6 -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#9aa1a9">이 페이지는 <a href="https://ethos.ai.kr" target="_blank" rel="noopener" style="color:#8a919b;text-decoration:underline">에토스AI 코드</a>로 만들어졌습니다</div>
+</body></html>
