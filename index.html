@@ -101,22 +101,39 @@ form.q input,form.q select,form.q textarea{width:100%;border:1px solid var(--lin
 .xbtn{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 12px;font-weight:800;cursor:pointer}
 footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 .kv{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--mut)}
+.roi{background:#0f2a5e;color:#fff;border-radius:14px;padding:18px;margin-top:14px}
+.roi input[type=range]{width:100%;accent-color:#00b578}
+.rw{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:800px){.rw{grid-template-columns:1fr}}
+.rwcard{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.rwcard.hot{border:2px solid var(--acc)}
+.mkt{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.mkt{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mkt{grid-template-columns:1fr}}
+.mk{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:7px}
+.mk .amt2{font-weight:900;color:var(--pri);font-size:17px}
+table.lean{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+table.lean th,table.lean td{border:1px solid var(--line);padding:10px;vertical-align:top;text-align:left}
+table.lean th{background:#f4f7ff}
+.pill{display:inline-block;font-size:11.5px;font-weight:900;background:#e6f9f0;color:#00875a;border-radius:999px;padding:3px 9px;margin-bottom:6px}
+.pill.hot{background:#eaf0fd;color:var(--pri)}
 </style>
 </head>
 <body>
 <header><div class="hwrap">
 <a class="logo" href="#home"><i>✓</i><span>정책캐치<small>CATCH · 2030 청년 정책비서</small></span></a>
 <nav>
-<a href="#match">맞춤매칭</a><a href="#policies">정책찾기</a><a href="#mentors">멘토링</a><a href="#docs">서류·자소서</a><a href="#pricing">요금제</a><a href="#about">소개</a><a href="#contact" class="cta-top">무료 상담</a>
+<a href="#match">맞춤매칭</a><a href="#policies">정책찾기</a><a href="#mentors">멘토링</a><a href="#docs">서류·자소서</a><a href="#pricing">패스·보상</a><a href="#market">족보마켓</a><a href="#b2b">제휴·B2B</a><a href="#contact" class="cta-top">무료 상담</a>
 </nav></div></header>
 
 <div class="hero" id="home"><div class="hero-in">
 <div>
-<span class="badge">● 대전 2030 청년 MVP · AI 초개인화 플랫폼</span>
-<h1>흩어진 청년정책,<br><span>일상 언어로 물으면</span> 바로 매칭</h1>
-<p class="lead">주거·취업·자산형성 혜택을 소득·거주지·고용형태로 분석해 1:1로 매칭하고, 인증 선배의 합격 족보와 AI 서류 첨삭까지 한 번에. 마감 놓치기 전에 캐치하세요.</p>
+<span class="badge">● 2,000만 원 린 스타트업 · 대전 2030 청년 MVP</span>
+<h1>월 2만 원대 패스 하나로<br><span>수백만 원 혜택을 캐치</span>하세요</h1>
+<p class="lead">소득·거주지·고용형태로 1:1 매칭하고, 인증 선배 족보와 AI 서류 첨삭까지 한 번에. VIP 패스는 신청 성공 시 구독료 최대 100% 페이백, 제휴 리워드팩 포함 — 낸 돈보다 버는 구조입니다.</p>
 <div class="hero-btns">
-<a class="btn btn-pri" href="#match">내 혜택 1분 매칭 체험</a>
+<a class="btn btn-pri" href="#pricing">패스·보상 보기</a>
+<a class="btn btn-acc" href="#match">내 혜택 1분 매칭 체험</a>
 <a class="btn btn-ghost" href="#policies">지원 가능한 공고 보기</a>
 <a class="btn btn-ghost" href="tel:042-123-4567">📞 042-123-4567 전화상담</a>
 </div>
@@ -124,14 +141,14 @@ footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 <div><b>67.7%</b><span>청년 정책 비인지율 (대전 실태조사)</span></div>
 <div><b>9개</b><span>지금 신청 가능한 대표 공고 큐레이션</span></div>
 <div><b>6명</b><span>합격 인증 선배 멘토 상주</span></div>
-<div><b>D-7</b><span>평균 마감 임박 알림으로 기회 보호</span></div>
+<div><b>최대 100%</b><span>신청 성공 시 구독료 페이백 챌린지</span></div>
 </div>
 </div>
 <div class="hero-card">
 <img src="https://picsum.photos/seed/catch-youth/900/420" alt="청년 일상">
 <div class="hc">
 <b>오늘의 캐치 알림 예시</b>
-<p class="pmeta" style="margin:6px 0">대전 거주 · 월소득 230만원 · 무주택 사회초년생 → <b style="color:var(--pri)">3개 매칭 · 예상 혜택 월 42만원</b></p>
+<p class="pmeta" style="margin:6px 0">대전 거주 · 월소득 230만원 · 무주택 사회초년생 → <b style="color:var(--pri)">3개 매칭 · 예상 혜택 312만원 · VIP 패스(24,900원)의 125배</b></p>
 <div class="ptag"><span>월세지원</span><span>전세임대</span><span>도약계좌</span></div>
 <p style="margin-top:10px"><a class="link" href="#match">내 조건으로 다시 계산하기 →</a></p>
 </div></div>
@@ -215,14 +232,61 @@ footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 
 <!-- PRICING -->
 <section class="block" id="pricing">
-<div class="sec-t">요금제 — 정책캐치 패스</div>
-<p class="sec-s">기본 매칭은 무료. 마감 임박 알림·족보·첨삭이 필요할 때만 패스 또는 단건으로 이용하세요.</p>
+<div class="sec-t">요금제 — 낸 돈보다 버는 패스</div>
+<p class="sec-s">핵심은 <b>VIP 올인원 합격 패스(월 2만 원대)</b>입니다. 구독하는 순간 최소 N배의 돈·시간을 아끼는 패키지로 설계했습니다. 신청만 성공해도 구독료가 돌아오니, 청년 입장에서는 “안 하면 손해”인 구조입니다.</p>
 <div class="price">
-<div class="pr"><h3>무료 (B2C)</h3><div class="amt">0원</div><ul><li>기본 맞춤 혜택 요약 (일 1회)</li><li>공고 탐색·마감 캘린더</li><li>멘토링·첨삭은 단건 결제</li></ul><button class="btn btn-ghost" data-plan="무료 시작">무료로 시작하기</button></div>
-<div class="pr hot"><h3>정책캐치 패스 ⭐</h3><div class="amt">월 3,900원~</div><ul><li>신규 공고 즉시 + 마감 임박 알림</li><li>인증 족보 월 5회 · AI 첨삭 월 3회 무료</li><li>서류 누락 검증 우선 지원</li></ul><button class="btn btn-pri" data-plan="정책캐치 패스">패스 신청하기</button></div>
-<div class="pr"><h3>단건 결제</h3><div class="amt">건당 소액</div><ul><li>1:1 멘토 채팅 1회권</li><li>AI 자소서·계획서 첨삭 1회권</li><li>필요할 때만 결제</li></ul><button class="btn btn-ghost" data-plan="단건 결제">단건 이용하기</button></div>
+<div class="pr"><span class="pill">라이트 유저용</span><h3>베이직 (무료)</h3><div class="amt">0원</div><ul><li>기본 맞춤 혜택 요약 (일 1회)</li><li>일상 언어 AI 검색 월 5회</li><li>공고 탐색 · 마감 캘린더</li><li>멘토링·첨삭은 단건 결제</li></ul><button class="btn btn-ghost" data-plan="베이직 무료">무료로 시작하기</button></div>
+<div class="pr"><span class="pill">주머니 가벼운 입문용</span><h3>스타터 패스</h3><div class="amt">월 9,900원</div><ul><li>신규 공고 즉시 + 마감 임박 알림</li><li>인증 족보 월 2회 · AI 첨삭 월 1회</li><li>서류 체크리스트 + 누락 검증</li><li>커스텀 알림 3개까지</li></ul><button class="btn btn-ghost" data-plan="스타터 패스 9,900원">스타터 시작하기</button></div>
+<div class="pr hot"><span class="pill hot">⭐ 핵심 수익원 · 가장 많이 선택</span><h3>VIP 올인원 합격 패스</h3><div class="amt">월 24,900원 <span style="font-size:13px;color:var(--mut)">(첫달 19,900원)</span></div><ul><li><b>신청 성공 인증 시 구독료 50~100% 페이백</b> (정책 신청 성공 챌린지)</li><li><b>제휴 리워드팩</b> (증명사진·스펙평가·자격증 수강 할인권 묶음)</li><li><b>AI 첨삭 무제한 + 선배 멘토 1:1 서류 직접검토 월 2회</b></li><li>커스텀 마감 알림 무제한 + 우선 상담</li></ul><button class="btn btn-pri" data-plan="VIP 올인원 합격 패스">VIP 패스로 합격률 올리기</button><p class="privacy">연납 시 월 19,900원 수준(연 238,800원)으로 인하됩니다.</p></div>
 </div>
-<p class="privacy">B2B/B2G: 지자체 맞춤 리포트·금융/부동산 타겟 광고(CPC/CPM)는 <a class="link" href="#contact">제휴 문의</a>로 연결됩니다.</p>
+<div class="rw" style="margin-top:14px">
+<div class="rwcard hot"><b>🎁 ① 100% 환급 챌린지</b><p class="pmeta" style="margin:6px 0">플랫폼 통해 정책·지원금 신청 완료를 인증하면 구독료의 <b>50~100%를 포인트로 페이백</b>. “신청만 하면 공짜”라는 인식이 전환율을 끌어올리고, 미신청자 구독료는 안정 매출로 남습니다.</p><div class="kv"><span>참여: VIP 전용</span><span>지급: 네이버페이형 포인트</span></div></div>
+<div class="rwcard"><b>🎁 ② 제휴 리워드 패키지</b><p class="pmeta" style="margin:6px 0">어차피 쓰는 청년 소비처와 제휴해 <b>구독자 전용 쿠폰팩</b> 지급. 제휴사 무료·저가 공급으로 원가 없이 체감가치를 부풀립니다.</p><div class="kv"><span>증명사진 할인</span><span>스펙평가 할인</span><span>자격증 수강권</span></div></div>
+<div class="rwcard"><b>🎁 ③ 1:1 밀착 서류보증</b><p class="pmeta" style="margin:6px 0">AI 첨삭 무제한에 <b>검증 선배의 직접 검토 월 2회</b> 포함. “합격률 3배 서류 검수”의 대가로 2만 원대는 취준생에게 저렴한 투자로 인식됩니다.</p><div class="kv"><span>합격 족보 포함</span><span>반려 시 재첨삭 1회</span></div></div>
+</div>
+<div class="roi">
+<b>💰 내 ROI 미리 계산하기 — 구독료의 몇 배를 돌려받을까?</b>
+<p class="pmeta" style="color:#c9d6f2;margin:6px 0">패스 선택 + 노리는 혜택 금액을 움직여보세요. 청년 평균 수혜(월세 240만원·창업 1,000만원 기준)면 수십~수백 배가 나옵니다.</p>
+<div class="grid2" style="margin-top:10px">
+<div><label style="font-size:13px;font-weight:800">패스 선택</label><select id="roi-plan" style="width:100%;border-radius:10px;padding:11px;margin-top:6px"><option value="9900">스타터 패스 · 월 9,900원</option><option value="24900" selected>VIP 패스 · 월 24,900원</option></select></div>
+<div><label style="font-size:13px;font-weight:800">노리는 혜택 총액: <span id="roi-val">300만원</span></label><input type="range" id="roi-amt" min="100000" max="10000000" step="100000" value="3000000" style="margin-top:12px"></div>
+</div>
+<div id="roi-out" style="margin-top:12px;font-size:16px;font-weight:900">VIP 패스 24,900원으로 3,000,000원 노리기 → 약 120배 · 환급 성공 시 실부담 0~12,450원</div>
+<p class="pmeta" style="color:#c9d6f2">예시: 대전 청년 월세지원(연 240만원) 1건만 성공해도 구독료 96개월치와 맞먹습니다.</p>
+</div>
+<p class="privacy">B2B/B2G(지자체 리포트·타겟 광고)는 <a class="link" href="#b2b">제휴·B2B 섹션</a>에서 사전예약으로 연결됩니다.</p>
+</section>
+
+<!-- MARKET -->
+<section class="block" id="market">
+<div class="sec-t">족보 마켓 — 초기 현금을 먼저 버는 구조</div>
+<p class="sec-s">비싼 AI를 돌리기 전에, <b>인증 선배의 합격 족보 PDF + 1:1 오픈채팅 멘토링</b>을 먼저 팝니다. 멘토가 콘텐츠를 직접 올리니 제작비가 거의 안 들고, 판매액의 <b>20~30%는 플랫폼 수수료</b>로 바로 현금화됩니다. (멘토 정산 70~80%)</p>
+<div class="mkt" id="mkt-grid"></div>
+<p class="privacy" style="margin-top:8px">족보 단건 9,900~19,900원 · 멘토 1:1 채팅 별도 · 구매 후 마이페이지(문의 섹션 접수함)에 기록됩니다.</p>
+<h4 style="margin:16px 0 8px">단건 하이엔드 (구독이 부담스러운 유저용)</h4>
+<div class="grid2">
+<div class="rwcard hot"><span class="pill hot">BEST · 합격 패키지</span><b>AI + 선배 멘토 콤보 사업계획서·자소서 검수권</b><div class="amt2">건당 35,000원</div><p class="pmeta">AI 1차 교정 → 인증 멘토 2차 직접 첨삭 → 48시간 내 결과 + 반려 시 재첨삭 1회. 창업·인턴·공모 지원 직전에 가장 많이 팔리는 상품입니다.</p><button class="btn btn-pri" data-buy="콤보 검수권 35,000원" style="margin-top:8px">검수권 구매하기</button></div>
+<div class="rwcard"><span class="pill">3분 컷</span><b>LH·행복주택 자격서류 3분 AI 검증 + 대리 체크리스트</b><div class="amt2">건당 4,900원</div><p class="pmeta">등본·계약서·소득서류 사진만 올리면 누락·반려 포인트를 3분 안에 짚어줍니다. 결과는 체크리스트 PDF로 저장.</p><button class="btn btn-ghost" data-buy="서류검증 4,900원" style="margin-top:8px">4,900원에 검증받기</button></div>
+</div>
+</section>
+
+<!-- B2B -->
+<section class="block" id="b2b">
+<div class="sec-t">제휴·B2B 사전예약 — 앱 완성 전에 파는 리포트</div>
+<p class="sec-s">2,000만 원 자본에서는 <b>앱 구축 전에 파는 것</b>이 생존 전략입니다. 아래 2종을 사전예약으로 수주해 초기 개발비를 충당합니다.</p>
+<div class="grid2">
+<div class="rwcard"><span class="pill hot">지자체·대학용</span><b>대전 청년 정책 만족도·미신청 원인 분석 리포트 (프로젝트성)</b><div class="amt2">회당 100~300만원</div><p class="pmeta">매칭 체험·상담 데이터로 “왜 청년이 신청을 포기하는가”를 정리한 샘플 리포트를 정책 담당자·취창업지원단에 제안합니다.</p><button class="btn btn-ghost" data-buy="B2B 리포트 사전상담" style="margin-top:8px">샘플 리포트 요청하기</button></div>
+<div class="rwcard"><span class="pill">지역상권용</span><b>청년 타겟 배너·푸시 (카페·스터디룸·사진관 등)</b><div class="amt2">월 10~20만원</div><p class="pmeta">대전 청년 우대 가게에 매칭 결과·알림 옆 작은 배너와 마감알림 푸시 1회를 묶어 저렴하게 수주합니다.</p><button class="btn btn-ghost" data-buy="지역광고 사전상담" style="margin-top:8px">광고 사전예약 상담</button></div>
+</div>
+<h4 style="margin:16px 0 8px">2,000만 원 초슬림 운용 선언 (돈이 새지 않게)</h4>
+<div style="overflow-x:auto"><table class="lean">
+<tr><th>구분</th><th>집행 예산</th><th>절감 노하우</th></tr>
+<tr><td><b>개발·서버 (RAG·LLM API)</b></td><td>300~500만원</td><td>노코드·로우코드 + 오픈소스 조합, 호출량 상한으로 API비 통제</td></tr>
+<tr><td><b>초기 유저 확보 (마케팅)</b></td><td>400~500만원</td><td>대학생 서포터즈·에브리타임·지역 커뮤니티 바이럴, 당근 지역광고</td></tr>
+<tr><td><b>멘토 확보·족보 리워드</b></td><td>200만원</td><td>초기 멘토 20~30명 수수료 우대 + 작성 지원금</td></tr>
+<tr><td><b>예비비</b></td><td>800~900만원</td><td>매출 전까지 최소 6개월~1년 버틸 최소 운영자금으로 보존</td></tr>
+</table></div>
+<p class="pmeta" style="margin-top:8px">수익이 나는 순서: ① 족보·단건으로 현금 먼저 → ② VIP 패스 구독 쌓기 → ③ B2B 리포트·광고로 고정수익. 이 순서대로 화면도 배치했습니다.</p>
 </section>
 
 <!-- ABOUT -->
@@ -244,12 +308,12 @@ footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 <div><h4>가치 제안</h4>조건부 초개인화 매칭 / 인증 멘토링 실전 노하우 / 원스톱 서류 준비로 합격률 제고</div>
 <div><h4>고객 관계·채널</h4>맞춤 커스텀 알림톡 / 리뷰 기반 멘토-멘티 / 모바일웹·앱, 에브리타임 마케팅</div>
 <div><h4>고객 세그먼트</h4>핵심: 대전 2030 청년·사회초년생 / 확장: 전국 지자체 청년</div>
-<div><h4>비용·수익</h4>비용: AI API·서버, 구축 인건비, 마케팅 / 수익: 패스 구독·단건 과금, 리포트·타겟광고</div>
+<div><h4>비용·수익</h4>비용: 2,000만원 슬림 운용(개발 300~500·마케팅 400~500·멘토 200·예비비 800~900만원) / 수익: VIP 패스(월 19,900~29,900원) + 환급 챌린지, 족보 수수료 20~30%, 단건 4,900~35,000원, B2B 리포트·광고</div>
 </div>
 <h4 style="margin:16px 0 8px">로드맵</h4>
 <div class="road">
 <div><b>Phase 1 — MVP</b><br>대전 2030 대상 MVP 런칭, OCR 자동추출 테스트 운영</div>
-<div><b>Phase 2 — 수익화</b><br>구독 고도화·단건 결제 안정화, B2B 맞춤 타겟광고 본격 도입</div>
+<div><b>Phase 2 — 수익화</b><br>VIP 패스 고도화(환급·리워드팩)·단건(35,000원·4,900원) 안정화, B2B 사전예약 본격 수주</div>
 <div><b>Phase 3 — 전국 확대</b><br>전국 권역 확대·공공 API 고도화, 청년정책 공식 위탁 플랫폼 도약</div>
 </div>
 <p class="pmeta" style="margin-top:10px">기대효과: 정보 비대칭 해소 → 실전 팁이 쌓이는 자생 생태계 → 청년 지역 정착(정주 여건 개선).</p>
@@ -263,7 +327,7 @@ footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 <form class="q matchbox" id="qform">
 <label>이름</label><input id="q-name" placeholder="홍길동">
 <label>연락처</label><input id="q-phone" placeholder="010-0000-0000">
-<label>문의 유형</label><select id="q-type"><option>내게 맞는 정책 찾기</option><option>멘토링·족보 이용</option><option>요금제·패스 문의</option><option>지자체·기업 제휴 (B2B/B2G)</option></select>
+<label>문의 유형</label><select id="q-type"><option>VIP 패스·환급 챌린지 문의</option><option>족보 구매·콤보 검수권 이용</option><option>내게 맞는 정책 찾기</option><option>B2B 리포트·지역광고 사전예약</option></select>
 <label>내용</label><textarea id="q-body" rows="4" placeholder="예) 대전 거주 사회초년생, 월세지원 조건이 궁금해요"></textarea>
 <button class="btn btn-pri" type="submit" style="width:100%;margin-top:12px">문의 남기기</button>
 <p class="privacy">입력하신 연락처는 문의 응대 목적으로만 사용되며 이 기기 브라우저에만 저장됩니다.</p>
@@ -280,7 +344,7 @@ footer{color:var(--mut);font-size:12.5px;padding:26px 0 40px;text-align:center}
 </section>
 </div>
 
-<footer>DST창업캠프 · 정책캐치(Catch) 시안 — 기획서 기반 큰 틀 (MVP 화면 설계용)<br>밝은 회색 배경 레퍼런스를 반영한 클린 테마 · 사진: picsum 플레이스홀더(실제 청년·공간 사진으로 교체 가능)</footer>
+<footer>DST창업캠프 · 정책캐치(Catch) 시안 — 수익구조 v2 반영 (VIP 패스·환급·족보마켓·단건·B2B 사전예약)<br>밝은 회색 배경 레퍼런스를 반영한 클린 테마 · 사진: picsum 플레이스홀더(실제 청년·공간 사진으로 교체 가능)</footer>
 
 <div id="toast"></div>
 <div class="overlay" id="overlay"><div class="sheet"><div class="sh"><b id="ov-t"></b><button class="xbtn" id="ov-x">닫기 ✕</button></div><div class="sb" id="ov-b"></div></div></div>
@@ -347,6 +411,19 @@ document.getElementById("btn-draft").onclick=function(){
  var out="["+biz+" 지원 동기 및 계획]\n\n저는 "+m.replace(/\n/g," ").slice(0,220)+" 등의 경험을 바탕으로 본 사업의 취지에 깊이 공감하여 지원합니다. 입주(선정) 후에는 월별 실행계획을 세워 성실히 이행하고, 결과물을 투명하게 기록·공유하겠습니다. 특히 예산·일정 관리와 증빙 정리를 철저히 하여 사업 목적에 부합하는 성과를 내겠습니다. (※ 기기 내 자동 초안 — 제출 전 멘토 첨삭 권장)";
  document.getElementById("d-out").value=out;toast("초안이 만들어졌어요. 복사해 제출서에 붙여넣으세요.");
 };
+var JOKBO=[
+{t:"LH 전세임대 가점·우선순위 족보 v3",m:"김○현",pr:14900,rt:"★★★★★ 4.9 · 212명 구매"},
+{t:"창업지원금 심사위원 질문 20선 + 요약장",m:"박○민",pr:19900,rt:"★★★★★ 4.8 · 168명 구매"},
+{t:"월세지원 계약서 특약 함정 회피집",m:"이○서",pr:9900,rt:"★★★★☆ 4.7 · 305명 구매"},
+{t:"국취제 활동일지 인정 템플릿 30일치",m:"최○준",pr:9900,rt:"★★★★★ 4.9 · 190명 구매"},
+{t:"청년도약계좌 유지 자동이체·비상금 룰",m:"정○아",pr:9900,rt:"★★★★☆ 4.6 · 141명 구매"},
+{t:"인턴→정규직 STAR 자소서 변환집",m:"한○우",pr:14900,rt:"★★★★★ 4.8 · 177명 구매"},
+{t:"행복주택 서류 3분 체크리스트 모음",m:"김○현",pr:9900,rt:"★★★★☆ 4.7 · 263명 구매"},
+{t:"사업계획서 수익모델 한 장 요약법",m:"박○민",pr:14900,rt:"★★★★★ 4.9 · 156명 구매"}];
+(function(){var g=document.getElementById("mkt-grid");if(!g)return;g.innerHTML="";JOKBO.forEach(function(j){var d=document.createElement("div");d.className="mk";var b=document.createElement("b");b.style.fontSize="14px";b.textContent=j.t;var m1=document.createElement("div");m1.className="pmeta";m1.textContent=j.m+" 멘토 · "+j.rt;var pr=document.createElement("div");pr.className="amt2";pr.textContent=j.pr.toLocaleString()+"원";var btn=document.createElement("button");btn.className="chip";btn.style.marginTop="4px";btn.textContent="구매하기";btn.onclick=function(){var k="catch_buy";var a=JSON.parse(localStorage.getItem(k)||"[]");var no="JB-"+Math.floor(1000+Math.random()*9000);a.push({no:no,item:j.t,at:new Date().toLocaleString()});localStorage.setItem(k,JSON.stringify(a));toast("구매 접수 "+no+" · "+j.t+" (정식결제는 출시 후 연동)")};d.appendChild(b);d.appendChild(m1);d.appendChild(pr);d.appendChild(btn);g.appendChild(d)})})();
+function roiCalc(){var plan=document.getElementById("roi-plan");var amt=document.getElementById("roi-amt");if(!plan||!amt)return;var fee=+plan.value;var v=+amt.value;document.getElementById("roi-val").textContent=(v/10000)+"만원";var x=Math.floor(v/fee);var back=fee>20000?" · 환급 성공 시 실부담 0~"+Math.floor(fee/2).toLocaleString()+"원":"";document.getElementById("roi-out").textContent=(fee===9900?"스타터 패스 9,900원":"VIP 패스 24,900원")+"으로 "+v.toLocaleString()+"원 노리기 → 약 "+x+"배"+back}
+try{document.getElementById("roi-plan").onchange=roiCalc;document.getElementById("roi-amt").oninput=roiCalc;roiCalc()}catch(e){}
+document.querySelectorAll("[data-buy]").forEach(function(b){b.onclick=function(){var k="catch_buy";var a=JSON.parse(localStorage.getItem(k)||"[]");var no="OD-"+Math.floor(1000+Math.random()*9000);a.push({no:no,item:b.dataset.buy,at:new Date().toLocaleString()});localStorage.setItem(k,JSON.stringify(a));toast("상담·구매 접수 "+no+" · "+b.dataset.buy)}});
 document.querySelectorAll("[data-plan]").forEach(function(b){b.onclick=function(){localStorage.setItem("catch_plan",b.dataset.plan);toast(b.dataset.plan+" 선택 저장 · 결제는 정식 출시 후 연동됩니다")}});
 function loadBox(){try{var q=JSON.parse(localStorage.getItem("catch_q")||"[]");var el=document.getElementById("mybox");if(!q.length){el.textContent="아직 남긴 문의가 없습니다.";return}el.innerHTML=q.slice(-3).reverse().map(function(x){return "· "+esc(x.no)+" · "+esc(x.type)+" · "+esc(x.at)}).join("<br>")}catch(e){}}
 document.getElementById("qform").onsubmit=function(e){e.preventDefault();var n=document.getElementById("q-name").value.trim(),p=document.getElementById("q-phone").value.trim(),t=document.getElementById("q-type").value,b=document.getElementById("q-body").value.trim();if(n.length<1||p.length<9){toast("이름과 연락처를 입력해주세요");return}var no="CT-"+Math.floor(1000+Math.random()*9000);var a=JSON.parse(localStorage.getItem("catch_q")||"[]");a.push({no:no,name:n,phone:p,type:t,body:b,at:new Date().toLocaleString()});localStorage.setItem("catch_q",JSON.stringify(a));loadBox();toast("접수 완료 · 접수번호 "+no);e.target.reset()};
