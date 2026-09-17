@@ -117,6 +117,40 @@ table.lean th,table.lean td{border:1px solid var(--line);padding:10px;vertical-a
 table.lean th{background:#f4f7ff}
 .pill{display:inline-block;font-size:11.5px;font-weight:900;background:#e6f9f0;color:#00875a;border-radius:999px;padding:3px 9px;margin-bottom:6px}
 .pill.hot{background:#eaf0fd;color:var(--pri)}
+
+/* AI 비서 팝업(첫방문 마법사) */
+#wiz{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(15,25,45,.55);padding:16px}
+#wiz.show{display:flex}
+.wiz-card{background:#fff;border-radius:18px;max-width:560px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.wiz-head{padding:18px 20px 0}
+.wiz-head h2{font-size:19px;line-height:1.5}
+.wiz-head p{font-size:13.5px;color:#647084;margin-top:6px}
+.wiz-body{padding:14px 20px 20px}
+.wiz-step{display:none}.wiz-step.on{display:block}
+.wchips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.wchip{border:1.5px solid #e3e8ef;background:#fff;border-radius:12px;padding:11px 12px;font-size:14px;font-weight:800;cursor:pointer;text-align:left;flex:1 1 46%}
+.wchip small{display:block;font-size:12px;color:#647084;font-weight:600;margin-top:2px}
+.wchip.on{border-color:#1857d6;background:#eaf0fd;color:#1857d6}
+.wchip.on small{color:#1857d6}
+.wrow label{font-size:13px;font-weight:800;display:block;margin:12px 0 6px;color:#33415c}
+.wrow select,.wrow input{width:100%;border:1px solid #e3e8ef;border-radius:10px;padding:11px 12px;font-size:14px}
+.wnav{display:flex;gap:8px;margin-top:16px}
+.wbtn{flex:1;border-radius:11px;padding:12px;font-size:14.5px;font-weight:900;cursor:pointer;border:1px solid #e3e8ef;background:#fff}
+.wbtn.pri{background:#1857d6;border-color:#1857d6;color:#fff}
+.wbtn:disabled{opacity:.45;cursor:default}
+.wres{border:1px solid #e3e8ef;border-radius:12px;padding:12px;margin-top:10px;background:#f8fafd}
+.wres h3{font-size:14.5px;margin-bottom:4px}
+.wres p{font-size:13px;color:#33415c}
+#wiz-chatlog{display:grid;gap:8px;margin-top:10px;max-height:260px;overflow:auto}
+.bub{border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.55;max-width:92%}
+.bub.bot{background:#eef3ff;color:#1a2233}
+.bub.me{background:#1857d6;color:#fff;justify-self:end}
+.bub .acts{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.bub .acts a{font-size:12.5px;font-weight:800;color:#1857d6;background:#fff;border:1px solid #b9cdf5;border-radius:8px;padding:6px 9px}
+.wiz-foot{font-size:12px;color:#647084;margin-top:10px}
+#ai-fab{position:fixed;right:18px;bottom:18px;z-index:150;border:none;background:#1857d6;color:#fff;font-weight:900;font-size:15px;border-radius:999px;padding:14px 18px;cursor:pointer;box-shadow:0 12px 28px rgba(24,87,214,.35)}
+@media(max-width:600px){.wchip{flex:1 1 100%}}
+
 </style>
 </head>
 <body>
@@ -125,6 +159,66 @@ table.lean th{background:#f4f7ff}
 <nav>
 <a href="#match">맞춤매칭</a><a href="#policies">정책찾기</a><a href="#mentors">멘토링</a><a href="#docs">서류·자소서</a><a href="#pricing">패스·보상</a><a href="#market">족보마켓</a><a href="#b2b">제휴·B2B</a><a href="#contact" class="cta-top">무료 상담</a>
 </nav></div></header>
+
+
+<!-- 첫방문 AI 비서 마법사 팝업 -->
+<div id="wiz" role="dialog" aria-modal="true" aria-label="정책캐치 AI 비서">
+<div class="wiz-card">
+<div class="wiz-head">
+<div style="display:flex;align-items:center;gap:10px">
+<span style="width:38px;height:38px;border-radius:12px;background:#1857d6;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px">🤖</span>
+<div><b>정책캐치 AI 비서</b><div style="font-size:12px;color:#647084">10초 만에 나만의 혜택 캐치 · 선택만 하면 돼요!</div></div>
+<button id="wiz-x" aria-label="닫기" style="margin-left:auto;border:none;background:#f2f4f7;border-radius:9px;width:34px;height:34px;font-size:16px;cursor:pointer">✕</button>
+</div>
+<h2 id="wiz-title" style="margin-top:12px">안녕하세요! 👋<br>어떤 혜택이 궁금하세요?</h2>
+<p id="wiz-sub">아래에서 해당하는 주제를 <b>여러 개</b> 골라주세요. 고른 주제에 맞춰 다음 단계에서 딱 맞는 질문만 드려요.</p>
+</div>
+<div class="wiz-body">
+<!-- 1단계: 관심 카테고리 -->
+<div class="wiz-step on" id="ws1">
+<div class="wchips" id="wiz-cats">
+<button class="wchip" data-c="주거">🏠 월세·전세 보증금 지원<small>자취·월세·LH·보증금</small></button>
+<button class="wchip" data-c="현금">💸 지금 받을 현금 지원금<small>수당·장려금·환급</small></button>
+<button class="wchip" data-c="취창업">💼 취업·창업·공모전<small>국취제·창업자금·인턴</small></button>
+<button class="wchip" data-c="자유">💬 일상 언어로 질문<small>예: 나 대전 사는데 지원금 있어?</small></button>
+</div>
+<div class="wnav"><button class="wbtn pri" id="wiz-next1" disabled>다음 (주제 선택 후)</button></div>
+</div>
+<!-- 2단계: 3가지 핵심정보 -->
+<div class="wiz-step" id="ws2">
+<div class="wrow"><label>1) 지금 어디에 거주 중이신가요?</label>
+<select id="wiz-city"><option>대전광역시</option><option>세종특별자치시</option><option>충청남도</option><option>서울특별시</option><option>기타 지역</option></select></div>
+<div class="wrow"><label>2) 월 소득 수준은 어느 쪽에 가까우세요?</label>
+<select id="wiz-inc"><option value="150">200만원 미만 (알바·무소득 포함)</option><option value="230" selected>200~300만원 (사회초년생 평균)</option><option value="350">300~450만원</option><option value="500">450만원 이상</option></select></div>
+<div class="wrow"><label>3) 현재 상태에 가장 가까운 것은?</label>
+<div class="wchips" id="wiz-status">
+<button class="wchip on" data-s="대학생">🎓 대학생·휴학생</button>
+<button class="wchip" data-s="취준생">🔍 구직중·취준생</button>
+<button class="wchip" data-s="직장인">🏢 직장인·사회초년생</button>
+<button class="wchip" data-s="창업">🚀 창업준비·사업자</button>
+</div></div>
+<div class="wnav"><button class="wbtn" id="wiz-back2">이전</button><button class="wbtn pri" id="wiz-next2">내 맞춤 혜택 보기</button></div>
+</div>
+<!-- 3단계: 큐레이션 + 추가 질문 -->
+<div class="wiz-step" id="ws3">
+<p style="font-size:13.5px;color:#33415c" id="wiz-sum"></p>
+<div id="wiz-res"></div>
+<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+<button class="wbtn" id="wiz-go-jokbo" style="flex:1">📕 합격 족보 보기</button>
+<button class="wbtn" id="wiz-go-docs" style="flex:1">✍️ AI 서류 만들기</button>
+</div>
+<div style="margin-top:14px;border-top:1px dashed #e3e8ef;padding-top:12px">
+<b style="font-size:14px">💬 AI 비서에게 추가로 묻기</b>
+<div id="wiz-chatlog" aria-live="polite"></div>
+<div style="display:flex;gap:8px;margin-top:8px"><input id="wiz-q" placeholder="예: 마감 언제야? 서류 뭐 필요해?" style="flex:1;border:1px solid #e3e8ef;border-radius:10px;padding:11px 12px;font-size:14px"><button class="wbtn pri" id="wiz-send" style="flex:0 0 76px">묻기</button></div>
+<p class="wiz-foot">답변은 기기 안에서 대표 공고 9개를 기준으로 안내돼요. 신청 전 공식 공고문 원문을 꼭 확인하세요.</p>
+<div class="wnav"><button class="wbtn" id="wiz-back3">조건 다시 고르기</button><button class="wbtn pri" id="wiz-done">홈페이지 둘러보기</button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button id="ai-fab">🤖 AI 비서에게 묻기</button>
 
 <div class="hero" id="home"><div class="hero-in">
 <div>
@@ -436,6 +530,143 @@ function route(){var h=location.hash||"#home";if(h.indexOf("#policy-")===0){open
 window.addEventListener("hashchange",route);
 document.getElementById("ov-x").onclick=function(){history.back()};
 document.getElementById("overlay").addEventListener("click",function(e){if(e.target.id==="overlay")history.back()});
+
+/* ===== 첫방문 마법사 + AI 비서 (서버전송 없음) ===== */
+(function(){
+var wiz=document.getElementById("wiz");
+var fab=document.getElementById("ai-fab");
+function showWiz(){wiz.classList.add("show")}
+function hideWiz(){wiz.classList.remove("show");try{localStorage.setItem("catch_wiz_done","1")}catch(e){}}
+document.getElementById("wiz-x").onclick=hideWiz;
+fab.onclick=function(){showWiz();wizGo(1)};
+wiz.addEventListener("click",function(e){if(e.target===wiz)hideWiz()});
+try{if(!localStorage.getItem("catch_wiz_done")){setTimeout(showWiz,800)}}catch(e){setTimeout(showWiz,800)}
+window.wizGo=function(n){
+ [1,2,3].forEach(function(i){document.getElementById("ws"+i).classList.remove("on")});
+ document.getElementById("ws"+n).classList.add("on");
+ var ti=document.getElementById("wiz-title"),su=document.getElementById("wiz-sub");
+ if(n===1){ti.innerHTML="안녕하세요! 👋<br>어떤 혜택이 궁금하세요?";su.innerHTML="아래에서 해당하는 주제를 <b>여러 개</b> 골라주세요. 고른 주제에 맞춰 다음 단계에서 딱 맞는 질문만 드려요."}
+ if(n===2){ti.innerHTML="딱 맞는 혜택을 위해<br>3가지만 알려주세요 🙏";su.innerHTML="거주지·소득·상태 3가지만 알면 매칭 정확도가 확 올라가요. 부담 없이 골라주세요!"}
+ if(n===3){ti.innerHTML="캐치 완료! 🎉<br>지금 노려볼 혜택이에요";su.innerHTML="2~3개만 핵심 요약(금액·마감·서류)으로 보여드려요. 더 궁금한 건 아래 채팅에 편하게 물어보세요!"}
+ wiz.querySelector(".wiz-card").scrollTop=0;
+};
+// 1단계: 카테고리 복수선택
+var cats=[];
+document.querySelectorAll("#wiz-cats .wchip").forEach(function(c){
+ c.onclick=function(){
+  c.classList.toggle("on");
+  cats=[].map.call(document.querySelectorAll("#wiz-cats .wchip.on"),function(x){return x.dataset.c});
+  var b=document.getElementById("wiz-next1");
+  b.disabled=!cats.length;
+  b.textContent=cats.length?("다음 ("+cats.length+"개 선택됨)"):("다음 (주제 선택 후)");
+ };
+});
+document.getElementById("wiz-next1").onclick=function(){wizGo(2)};
+// 2단계: 상태 단일선택
+var status="대학생";
+document.querySelectorAll("#wiz-status .wchip").forEach(function(c){
+ c.onclick=function(){
+  document.querySelectorAll("#wiz-status .wchip").forEach(function(x){x.classList.remove("on")});
+  c.classList.add("on");status=c.dataset.s;
+ };
+});
+document.getElementById("wiz-back2").onclick=function(){wizGo(1)};
+document.getElementById("wiz-next2").onclick=function(){wizRecommend();wizGo(3)};
+document.getElementById("wiz-back3").onclick=function(){wizGo(2)};
+document.getElementById("wiz-done").onclick=hideWiz;
+document.getElementById("wiz-go-jokbo").onclick=function(){hideWiz();location.hash="#market"};
+document.getElementById("wiz-go-docs").onclick=function(){hideWiz();location.hash="#docs"};
+function catMatch(p){
+ if(!cats.length)return true;
+ var hit=false;
+ cats.forEach(function(c){
+  if(c==="주거"&&(p.cat==="주거"))hit=true;
+  if(c==="현금"&&(p.cat==="자산"||p.id===4))hit=true;
+  if(c==="취창업"&&(p.cat==="취업"||p.cat==="교육"))hit=true;
+  if(c==="자유")hit=true;
+ });
+ return hit;
+}
+function wizRecommend(){
+ var city=document.getElementById("wiz-city").value;
+ var inc=+document.getElementById("wiz-inc").value||0;
+ var pool=POLICIES.filter(function(p){return catMatch(p)&&inc>=p.min-50&&inc<=p.max+200});
+ if(status==="취준생")pool.sort(function(a,b){return (b.cat==="취업")-(a.cat==="취업")});
+ if(status==="대학생")pool.sort(function(a,b){return (b.cat==="주거"||b.cat==="교육")-(a.cat==="주거"||a.cat==="교육")});
+ if(status==="직장인")pool.sort(function(a,b){return (b.cat==="자산")-(a.cat==="자산")});
+ if(status==="창업")pool.sort(function(a,b){return (b.id===5?1:0)-(a.id===5?1:0)});
+ var top=pool.slice(0,3);
+ if(!top.length)top=POLICIES.slice(0,3);
+ document.getElementById("wiz-sum").innerHTML="📍 "+esc(city)+" · "+esc(status)+" · 월소득 약 "+inc+"만원 기준으로 <b>"+top.length+"개</b>를 골랐어요. 카드 누르면 상세·서류가 열립니다.";
+ var box=document.getElementById("wiz-res");box.innerHTML="";
+ top.forEach(function(p){
+  var d=document.createElement("div");d.className="wres";
+  d.innerHTML="<h3>"+esc(p.title)+"</h3><p>💰 "+esc(p.amt)+" · ⏰ "+esc(p.dday)+"("+p.due+")<br>📄 "+esc(p.docs.slice(0,3).join(" · "))+(p.docs.length>3?" 외":"")+"</p><div style='margin-top:8px;display:flex;gap:6px'><a href='#policy-"+p.id+"' class='wbtn pri' style='flex:1;text-align:center;font-size:13px' data-close>상세·서류 보기</a></div>";
+  box.appendChild(d);
+ });
+ box.querySelectorAll("[data-close]").forEach(function(a){a.onclick=hideWiz});
+ // 첫 추천을 채팅에도 인사로 남김
+ var log=document.getElementById("wiz-chatlog");
+ if(!log.children.length){
+  botSay("찾았어요! 🎉 위 3개가 지금 조건에 가장 잘 맞아요. 마감이 임박한 순으로 보여드렸어요.<br>더 물어보세요 — 예: <b>“서류 뭐 필요해?” “마감 언제야?” “창업지원금 족보 있어?”</b>");
+ }
+ try{
+  document.getElementById("f-city").value=city;
+  document.getElementById("f-income").value=inc;
+ }catch(e){}
+}
+function botSay(html,links){
+ var log=document.getElementById("wiz-chatlog");
+ var d=document.createElement("div");d.className="bub bot";d.innerHTML=html;
+ if(links&&links.length){
+  var w=document.createElement("div");w.className="acts";
+  links.forEach(function(l){
+   var a=document.createElement("a");a.textContent=l.t;a.href=l.h;
+   if(l.h.charAt(0)==="#")a.onclick=hideWiz;
+   else{a.target="_blank";a.rel="noopener"}
+   w.appendChild(a);
+  });
+  d.appendChild(w);
+ }
+ log.appendChild(d);log.scrollTop=log.scrollHeight;
+}
+function meSay(q){
+ var log=document.getElementById("wiz-chatlog");
+ var d=document.createElement("div");d.className="bub me";d.textContent=q;
+ log.appendChild(d);log.scrollTop=log.scrollHeight;
+}
+function wizAnswer(q){
+ var s=q.replace(/\s+/g,"");
+ var has=function(){for(var i=0;i<arguments.length;i++){if(s.indexOf(arguments[i])>-1)return true}return false};
+ if(has("안녕","반가","처음"))return{html:"안녕하세요! 👋 10초 캐치 비서예요. 거주지·소득·상태만 알면 딱 맞는 혜택 2~3개를 골라드려요. 위에서 주제를 다시 고르거나, 편하게 질문해보세요!"};
+ if(has("고마","감사","굿","좋아"))return{html:"천만에요! 😊 놓치면 손해 보는 마감부터 챙기세요. 알림 신청은 홈페이지 ‘맞춤매칭’ 섹션에서 바로 할 수 있어요!",links:[{t:"마감 임박 공고 보기",h:"#policies"}]};
+ if(has("가격","구독","패스","비용","페이백","환급","얼마"))return{html:"💳 <b>패스 안내</b><br>· 스타터 패스 월 9,900원<br>· <b>VIP 올인원 합격 패스 월 24,900원</b> — 신청 성공 인증 시 최대 100% 페이백 챌린지 + 제휴 리워드팩 + 멘토 직접검토 월 2회 포함.<br>낸 돈보다 버는 구조라 고가여도 ROI가 커요!",links:[{t:"패스·보상 보기",h:"#pricing"}]};
+ if(has("월세"))return{html:"🏠 <b>대전 청년 월세지원</b><br>· 월 최대 20만원 × 12개월 · 마감 2026-10-24(D-37)<br>· 조건: 대전 거주 19~39세 무주택, 중위 150% 이하<br>· 서류: 등본·임대차계약서·소득금액증명·통장사본",links:[{t:"상세·서류 보기",h:"#policy-1"},{t:"합격 족보 보기",h:"#market"}]};
+ if(has("전세","LH","보증금"))return{html:"🏠 <b>LH 청년전세임대</b> + <b>보증금 이자지원(연 2%)</b>이 후보예요.<br>· 전세임대: 전세금 최대 1.2억, 마감 11-07<br>· 이자지원: 연 최대 200만원, 마감 11-20<br>계약 전 은행·시 조건을 교차 확인하는 게 합격 포인트!",links:[{t:"전세임대 상세",h:"#policy-2"},{t:"이자지원 상세",h:"#policy-8"}]};
+ if(has("국취","구직","수당","현금","당장","바로"))return{html:"💸 <b>국민취업지원제도</b>: 월 50만원 × 6개월, 마감 10-31.<br>구직활동 의무를 채우면 조기취업수당도 가능해요. 활동일지 템플릿이 있으면 통과가 쉬워집니다.",links:[{t:"상세 보기",h:"#policy-4"},{t:"활동일지 족보",h:"#market"}]};
+ if(has("창업","사업계획","공모전","아이템"))return{html:"💼 <b>청년창업지원금 최대 1,000만원</b>, 마감 10-02로 가장 임박!(D-15)<br>사업계획서+발표평가가 당락을 갈라요. ‘수익모델 한 장 요약’이 핵심 팁이에요.",links:[{t:"상세 보기",h:"#policy-5"},{t:"심사위원 질문 20선",h:"#market"},{t:"자소서 초안 만들기",h:"#docs"}]};
+ if(has("저축","도약","적금","자산","통장"))return{html:"💰 <b>청년도약계좌</b>(상시) + <b>대전 자산형성통장 1:1 매칭</b>(9-30 마감, D-13!)<br>매칭통장이 시급하니 먼저 챙기세요. 자동이체는 급여일 다음날 고정이 유지 비결이에요.",links:[{t:"도약계좌 상세",h:"#policy-3"},{t:"매칭통장 상세",h:"#policy-6"}]};
+ if(has("자격증","토익","어학","교육","스펙"))return{html:"🎓 <b>자격증 응시료 지원 최대 20만원</b>(연 2회, 12-12 마감)<br>영수증·성적표만 챙기면 통과율이 높아요.",links:[{t:"상세 보기",h:"#policy-7"}]};
+ if(has("인턴","일경험","경험"))return{html:"💼 <b>청년 인턴십·일경험</b>: 월 150만원 내외 + 멘토링, 마감 10-17.<br>수료 후 정규직 전환 사례가 많아요. 경험은 수치로 바꿔 쓰세요!",links:[{t:"상세 보기",h:"#policy-9"}]};
+ if(has("서류","필요","준비","등본","계약서"))return{html:"📄 자주 빠지는 5종: 등본(최근 3개월)·소득금액증명·임대차계약서·재직증빙·통장사본.<br>‘서류 가이드’ 섹션에서 체크리스트 + 정부24 발급 링크를 바로 쓸 수 있어요.",links:[{t:"서류 가이드 열기",h:"#docs"}]};
+ if(has("자소서","첨삭","초안","계획서"))return{html:"✍️ 투박한 메모만 있으면 신청서용 초안을 바로 만들어드려요. 홈페이지 ‘서류·자소서’ 섹션에서 사업 선택 → 메모 입력 → 초안 생성 순서예요.",links:[{t:"초안 만들러 가기",h:"#docs"}]};
+ if(has("멘토","선배","족보","합격","노하우"))return{html:"📕 인증 멘토 6명 + 족보 8종(9,900~19,900원)이 있어요. LH 가점 족보·심사위원 질문 20선이 가장 인기예요.",links:[{t:"족보마켓 보기",h:"#market"},{t:"멘토 보기",h:"#mentors"}]};
+ if(has("마감","언제","기한","알림","놓치"))return{html:"⏰ 가장 임박한 순: ① 자산형성통장 9-30 ② 창업지원금 10-02 ③ 인턴십 10-17.<br>‘맞춤매칭’ 섹션에서 휴대폰 알림(7일·3일·당일)을 신청해두세요!",links:[{t:"알림 신청하기",h:"#match"}]};
+ if(has("대전","세종","거주","사는"))return{html:"📍 대전 거주 청년이 노릴 3대장: 월세지원·자산형성통장·자격증 응시료예요. 거주지를 대전으로 두면 매칭 정확도가 올라가요. 위 ‘조건 다시 고르기’로 바꿔보세요!"};
+ if(has("대학","취준","직장","프리"))return{html:"조건을 반영했어요! 위 ‘조건 다시 고르기’에서 상태를 바꾸면 추천 3개가 바로 다시 골라져요. 추가로 궁금한 정책 이름을 말해보세요. 예: LH, 도약계좌, 창업지원금"};
+ var top=POLICIES.slice(0,2);
+ return{html:"음, 그 질문은 이렇게 정리해드릴게요! 😊 지금 조건에서 가장 확률 높은 2개는 <b>"+esc(top[0].title)+"</b> · <b>"+esc(top[1].title)+"</b>예요.<br>정책 이름(LH·월세·창업지원금 등)이나 <b>마감·서류·족보</b> 중 하나를 말해보세요. 바로 요약해드릴게요!"};
+}
+document.getElementById("wiz-send").onclick=function(){
+ var inp=document.getElementById("wiz-q");
+ var q=inp.value.trim();if(q.length<1)return;
+ meSay(q);inp.value="";
+ var a=wizAnswer(q);
+ setTimeout(function(){botSay(a.html,a.links)},450);
+};
+document.getElementById("wiz-q").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();document.getElementById("wiz-send").click()}});
+})();
+
 renderPolicies();renderMentors();loadBox();route();
 </script>
 
